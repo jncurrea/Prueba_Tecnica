@@ -9,5 +9,4 @@ En esta primera fase del desarrollo de la solución, se realizo una exploración
 
 #### 1.1 Exploración API categorías y API items
 Esta fase de la exploración la dividí en dos partes, la primera fue explorar el API de categorías con el fin de ver las distintas disponibles y así poder seleccionar una para mi solución. En este caso, tras explorar las diferentes categorías, me decidí por la MCO1276 la cual hace referencia a Deporte y Fitness en Colombia. Decidí elegir esta ya que soy aficionado a esto. Algunas de las categorías que se pueden ver explorando el API son las siguientes:
-
-IMAGEN
+![Imágen Referencia Categorias](https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%205.41.19%20PM.png)
