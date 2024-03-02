@@ -29,7 +29,7 @@ Al realizar la exploración del DataFrame de items, pude evidenciar que algunas 
 
 Identifique tres columnas que podrīan ser de ayuda para el desarrollo de mi solución de cara a los sellers, la columna seller que identificaba al seller de cada producto y sería mi punto de partida,la columna shipping que incluía campos tales como free_shipping y store_pick_up, y la columna installments que incluía informacion referente a ventas.
 
-Seleccioné la columna shipping ya que asumí que si un seller ofrece envío gratis en uno de sus productos, sería indicativo de un plus que ofrece el seller para el cliente siendo así un seller relevante para el negocio. Por otra parte, seleccionê la columna installments ya que con ella asumí que podría identificar metricas claves como cantidad de articulos vendidos (por item).
+Seleccioné la columna shipping ya que asumí que si un seller ofrece envío gratis en uno de sus productos, sería indicativo de un plus que ofrece el seller para el cliente siendo así un seller relevante para el negocio. Por otra parte, seleccionê la columna installments ya que con ella asumí que podría identificar metricas claves como cantidad de articulos vendidos (por item). A continuación, las columnas del nuevo DataFrame.
 
 <div>
 <img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.18.16%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
@@ -37,10 +37,20 @@ Seleccioné la columna shipping ya que asumí que si un seller ofrece envío gra
 
 ### Parte 2 - Maseo de los datos y exploración por seller
 
-En esta segunda fase, ya me enfoque más en la información de cara a sellers. Esta fase la dividí en 3.
+En esta segunda fase, ya me enfoque más en la información de cara a sellers. Esta fase la dividí en 2, agriupaciòn de variables a nivel de seller y construcción de DataFrame a nivel de sellers.
 
 #### 2.1 Agrupación de variables por seller
-la primera fue agrupar por seller algunas de las variables que consideré importantes con el fin de identificar información como total de productos ofrecidos por seller, referencias unicas ofrecidas por seller, cantidad vendida por seller, cantidad disponible de items por selles, entre otras. Realicé estas agrupaciones ya que el tener una idea de como se vería la información realizando estas agrupaciones me daría una visual de información que podria tener en un DataFrame de sellers.
+La primera parte fue agrupar por seller algunas de las variables que consideré importantes con el fin de identificar información como total de productos ofrecidos por seller, referencias unicas ofrecidas por seller, cantidad vendida por seller, cantidad disponible de items por selles, entre otras. Realicé estas agrupaciones ya que el tener una idea de como se vería la información realizando estas agrupaciones me daría una visual de información que podria tener en un DataFrame de sellers. A continuación algunos ejemplos como items distintos ofrecidos por seller e items que aceptan MercadoPago por seller.
 
-IMAGEN
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.42.39%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.42.32%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+#### 2.2 Generación Data Frame sellers
+En esta segunda parte, construí un DataFrame base a nivel de sellers con el fin de identificar caracteristicas de los sellers tales como la aceptación de MercadoPago, envío gratis, items vendidos, entre otras. Este DataFrame fue construido con base a la exploración y agrupación de las variables en la parte anterior. Las columnas de este DataFrame base son las siguientes
+
 IMAGEN
