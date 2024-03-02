@@ -110,3 +110,20 @@ Decidí realizar pruebas tambien con un modelo No Supervisado. Para este caso, p
 <div>
 <img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.56.34%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
 </div>
+
+
+### Resumen, conclusiones y pasos a seguir
+
+1. El problema que se intenta resolver, es la necesidad de una clasificación que distinga a los sellers con buen perfil para que el equipo comercial pueda dirigir sus esfuerzos estratégicos de manera más efectiva.
+2. Se utilizó informacion referente a los sellers con base en la información obtenida en el API de items. Como se mencionó anteriormente, identifique tres columnas que podrīan ser de ayuda para el desarrollo de mi solución de cara a los sellers, la columna seller que identificaba al seller,la columna shipping y la columna installments, adicional a la información ya dispuesta en el API de items.
+    2.1. La hipotesis que me llevo a seleccionar shipping, fue que era posible que un seller sería más relevante si ofrecía envíos gratis.
+    2.2. La hipótesis que me llevo a seleccionar installments fue que la cantidad de items vendidos me permitiria identificar la relevancia de cada seller.
+3. Validando mi hipótesis, la variable más significativa al identificar un seller relevante es la cantidad de items vendidos como se puede evidenciar en el numeral 3.1.1, adicional a esto la cantidad de items en estado nuevo tambiên fue una variable relevante al identificar sellers de buen perfil (también dispobnible en el numeral 3.1.1). Curiosamente, un seller que acepte mercado pago, aparentemente no es significativo al momento de ser relevante
+4. La solución que escogí fue un modelo de clasificación que permitiera identificar si un seller tenia un buen perfil o no. Inicialmente implementé dos modelos de clasificación supervisados y uno no supervisado para poder comparar métricas de evaluación tales como el accuracy, la precisión y el recall en el caso de los modelos supervisados y la inercia en el caso del modelo Kmeans.
+5. Mi solución final es un modelo Random Forest Classifier el cual alcanzó un **accuracy del 98%**, siendo este el modelo que mejor se comportó. Este se basa en generar caracteristicas por el usuario que, teniendo en cuenta el factor humano del usuario, identifiquen si el seller tiene un buen perfil o no. Teniendo en cuenta esta caracterización el modelo realizara una predicción e identificara si cada uno de los sellers tiene un buen perfil o no basado en las caracteristicas importantes. Esto le permite al equipo comercial identificar a los diferentes sellers con el fin de realizar estrategias focalizadas para los sellers de buen perfil y los sellers de mal perfil.
+6. En conclusión se desarrollo un modelo que puede ser utilizado por el equipo comercial, permitiendoles identificar sellers con buen perfil y con mal perfil para el desarrollo de sus estrategias focalizadas. Los pasos a seguir son:
+    6.1. Desplegar el modelo para que pueda ser consumido por el equipo comercial.
+    6.2. Desarrollar las estrategias focalizadas basadas en el análisis y las predicciones del modelo.
+    6.3. Realizar iteraciones mensuales, con el fin de reevaluar y mejorar el modelo y las estrategias a medida que se obtiene más información y se recopilan más datos.
+
+# Muchas gracias!
