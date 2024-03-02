@@ -51,6 +51,30 @@ La primera parte fue agrupar por seller algunas de las variables que consideré 
 </div>
 
 #### 2.2 Generación Data Frame sellers
-En esta segunda parte, construí un DataFrame base a nivel de sellers con el fin de identificar caracteristicas de los sellers tales como la aceptación de MercadoPago, envío gratis, items vendidos, entre otras. Este DataFrame fue construido con base a la exploración y agrupación de las variables en la parte anterior. Las columnas de este DataFrame base son las siguientes
+En esta segunda parte, construí un DataFrame base a nivel de sellers con el fin de identificar caracteristicas de los sellers tales como la aceptación de MercadoPago, envío gratis, items vendidos, entre otras. Este DataFrame fue construido con base a la exploración y agrupación de las variables en la parte anterior. Las columnas de este DataFrame base son las siguientes:
 
-IMAGEN
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.52.40%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+### Parte 3 - Construcción de la solución
+
+#### Fase 1 - Modelos Supervisados
+En esta primera fase realicé pruebas de dos modelos supervisados como solución y poder identificar los sellers de buen perfil. Teniendo en cuenta que para los modelos supervisados se necesita una variable Y que permita evaluar la predicción, cree la variable good_profile manualmente basado en ciertas caracteristicas que asumí serian identificadoras de un buen seller. Esto lo hice teniendo en cuenta la información proporcionada por el comando describe() del DataFrame de sellers. 
+
+La columna se construyó con las siguientes caracteristicas:
+```python
+final_seller_df['good_profile'] = (final_seller_df['accepts_mercadopago'] == True) & 
+                                  (final_seller_df['store_pick_up'] == False) & 
+                                  (final_seller_df['sold_quantity'] >= 400) & 
+                                  (final_seller_df['quantity_new_items'] >= 14) &
+                                  (final_seller_df['free_shipping'] == True) & 
+                                  (final_seller_df['quantity_distinct_products'] >= 3)
+```
+
+La información del describe() fue la siguiente:
+
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.55.26%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
