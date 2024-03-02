@@ -59,7 +59,7 @@ En esta segunda parte, construí un DataFrame base a nivel de sellers con el fin
 
 ### Parte 3 - Construcción de la solución
 
-#### Fase 1 - Modelos Supervisados
+#### 3.1 - Modelos Supervisados
 En esta primera fase realicé pruebas de dos modelos supervisados como solución y poder identificar los sellers de buen perfil. Teniendo en cuenta que para los modelos supervisados se necesita una variable Y que permita evaluar la predicción, cree la variable good_profile manualmente basado en ciertas caracteristicas que asumí serian identificadoras de un buen seller. Esto lo hice teniendo en cuenta la información proporcionada por el comando describe() del DataFrame de sellers. 
 
 La columna se construyó con las siguientes caracteristicas:
@@ -78,3 +78,35 @@ La información del describe() fue la siguiente:
 <img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.55.26%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
 </div>
 
+##### 3.1.1 - Random Forest Classifier
+Posterior a la construcción de la variable Y, realicé pruebas con dos modelos. El primer modelo fuen un Random Forest Classifier que alcanzó un **accuracy del 98%.** Esto es un hito positivo ya que, basado en la matriz de confusión, tan solo hubo 1 seller que no fue categorizado correctamente y quedó dentro de la categoría de "falso positivo", es decir, el modelo lo clasificó como un seller con buen perfil, sin embargo la columna good_profile no lo consideraba como tal.
+
+A continuación se ve los resultados del accuracy y la matriz de confusión:
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.55.37%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+A continuación, las variables consideradas importantes por el modelo:
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.55.45%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+##### 3.1.2 - K Nearest Neighbours (KNN)
+Como segundo modelo supervisado, utilicé un modelo KNN. Este modelo alcanzó **un accuracy del 85%**. A pesar de tener una menor accuracy, este modelo aún se puede considerar como bueno ya que de los 70 sellers tan solo clasificó "erroneamente" a 10 sellers, es decir tan solo un 14%.
+
+A continuación la matriz de confusión del modelo KNN:
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.55.54%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+A continuación los puntos reales VS las predicciones del modelo:
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.56.03%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
+
+#### 3.2 - Modelo No Supervisado
+Decidí realizar pruebas tambien con un modelo No Supervisado. Para este caso, probé el modelo Kmeans. Debido a que el modelo no supervisado no requiere una variable Y, hice un drop de la columna good_profile. Este modelo tan solo alcanzó **un accuracy del 12%** indicando que este modelo no realizò un buen trabajo  identificando a los sellers de buen perfil. A continuación, en la grafica, se evidencia como este modelo realizó un mejor trabajo prediciendo sellers de mal perfil que los de buen perfil ya que la distancia al cluster 0 (idica que el seller no tiene un perfil atractivo) es de 2 unidades, mientras que la distancia al cluster 1 (indicando un seller de buen perfil) es de 10. Recordemos que entre mas cercanía haya al cluster, mejor será la predicción.
+
+<div>
+<img src="https://github.com/jncurrea/Prueba_Tecnica/blob/main/Reference_Images/Screenshot%202024-03-01%20at%206.56.34%20PM.png" alt="Imágen Columnas tras expansión de columnas JSON" width="500"/>
+</div>
